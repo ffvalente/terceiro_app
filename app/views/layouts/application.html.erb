@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title><%= yield(:title) %> | Terceiro App Web II</title>
-# Restante do código...
-</head>
-<body>
-<%= yield %>
-</body>
+  <head>
+    <title><%= yield(:title) %> | Terceiro App Web II</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to 'terceiro app', '/paginas_estaticas/inicio', id: 'logo' %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Início', '#' %></li>
+            <li><%= link_to 'Ajuda', '/paginas_estaticas/ajuda' %></li>
+            <li><%= link_to 'Entrar', '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <small>
+        Terceiro App criado por Thiago
+      </small>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Sobre', '/paginas_estaticas/sobre' %></li>
+          <li><%= link_to 'Contato', '/paginas_estaticas/contato' %></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
 </html>
